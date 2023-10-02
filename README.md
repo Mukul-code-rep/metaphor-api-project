@@ -35,7 +35,7 @@ The project relies on several external libraries, including nltk, spacy, pytextr
 ## Installation and Environment
 This project assumes the installation of python.
 
-The dependencies for the project can be downloaded this command in the terminal:
+The dependencies for the project can be downloaded by using the following command in the terminal:
 ```Bash
 pip install -r requirements.txt
 ```
