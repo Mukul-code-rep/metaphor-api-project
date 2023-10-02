@@ -144,7 +144,7 @@ class DocumentSearch:
         quick_sort(ranking_list, 0, len(ranking_list)-1, modify=True)
 
         # Limit the number of results based on user-specified preference or default to top 10
-        if kwargs["num_results"]:
+        if "num_results" in kwargs:
             ranking_list = ranking_list[:kwargs["num_results"]]
         else:
             ranking_list = ranking_list[:10]
