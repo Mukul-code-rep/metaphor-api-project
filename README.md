@@ -17,7 +17,17 @@ This project leverages various libraries and APIs to facilitate document search 
 To enhance usability and provide a user interface for the document search functionality, the project includes a Flask web application. The Flask app incorporates the `DocumentSearch` class to expose an endpoint for users to perform document searches based on keywords extracted from input text.
 
 ### Flask App Functionality
-- **Endpoint (`/document_search`)**: The app defines a Flask route for the `/document_search` endpoint, accessible via HTTP POST requests.
+**Endpoint (`/document_search`)**: The app defines a Flask route for the `/document_search` endpoint, accessible via HTTP POST requests.
+
+ JSON Data Fields:
+ - `text`: str (required) - the text of the document that needs to be parsed
+ - `num_results`: int (optional)
+ - `include_domains`: list[str] (optional)
+ - `exclude_domains`: list[str] (optional)
+ - `start_crawl_date`: str (optional)
+ - `end_crawl_date`: str (optional)
+ - `start_published_date`: str (optional)
+ - `end_published_date`: str (optional)
 
 ## Dependencies
 The project relies on several external libraries, including nltk, spacy, pytextrank, re, metaphor_python, scikit-learn, and a custom helper module with functions like `quick_sort` and `binary_search`.
