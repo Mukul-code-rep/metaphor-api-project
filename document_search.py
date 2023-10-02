@@ -82,17 +82,21 @@ class DocumentSearch:
             Returns:
                 list[str]: List of extracted keywords.
         """
-        stopwords = nltk.corpus.stopwords.words('english')
-        quick_sort(stopwords, 0, len(stopwords)-1)
-
         text = text.replace("\n", " ").lower()
-        text_list = text.split(" ")
+        
+        try:
+            stopwords = nltk.corpus.stopwords.words('english')
+        except:
+            pass
+        else:
+            text_list = text.split(" ")
+            quick_sort(stopwords, 0, len(stopwords)-1)
 
-        # Remove stopwords
-        for i in range(len(text_list)-1, -1, -1):
-            if binary_search(stopwords, text_list[i]) == 0:
-                text_list.pop(i)
-        text = " ".join(text_list)
+            # Remove stopwords
+            for i in range(len(text_list)-1, -1, -1):
+                if binary_search(stopwords, text_list[i]) == 0:
+                    text_list.pop(i)
+            text = " ".join(text_list)
 
         # Use spaCy textrank to extract phrases
         results = self.__model(text)._.phrases
